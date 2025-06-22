@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Mail, Calendar, ExternalLink, Phone, MapPin, User } from 'lucide-react'
+import { Mail, Calendar, ExternalLink, Phone, MapPin, User } from "lucide-react"
 
 export function ResearchScholarsGrid() {
   const [selectedScholar, setSelectedScholar] = useState<any>(null)
@@ -15,7 +15,7 @@ export function ResearchScholarsGrid() {
     {
       name: "Ajeesh K",
       role: "Research Scholar",
-      image: "/placeholder.svg?height=300&width=300&text=Ajeesh+K", // Added image
+      image: "/placeholder.svg?height=300&width=300&text=Amit+Patel",
       interests: ["Fibre Reinforced Concrete Pavements"],
       joiningDate: "2019",
       expectedCompletion: "2024",
@@ -23,25 +23,27 @@ export function ResearchScholarsGrid() {
       email: "101914001@smail.iitpkd.ac.in",
       phone: "+91 9876543210",
       iitProfile: "https://iitpkd.ac.in/people/101914001",
+     
     },
+
     {
       name: "Saneesh Sabu",
       role: "Research Scholar",
-      image: "/placeholder.svg?height=300&width=300&text=Saneesh+Sabu", // Added image
-      interests: ["Sustainable Pavement Materials", "Bituminous Mix Design", "Performance Characterization"],
+      interests: ["Sustainable Pavement Materials, Bituminous Mix Design, Performance Characterization"],
       joiningDate: "2025",
       expectedCompletion: "2024",
       bio: "Developing autonomous navigation systems for mobile robots in dynamic environments. His work focuses on SLAM algorithms and path planning.",
-      email: "102504010@smail.iitpkd.ac.in",
+      email: "102504010@smail.iitpkd.ac.in ",
       iitProfile: "https://iitpkd.ac.in/people/101914001",
+     
     },
+    
   ]
 
   const msScholars = [
     {
       name: "Rahul Gupta",
       role: "MS Scholar",
-      image: "/placeholder.svg?height=300&width=300&text=Rahul+Gupta", // Added image
       interests: ["Robotics", "Control Systems", "Autonomous Navigation"],
       joiningDate: "July 2023",
       expectedCompletion: "June 2025",
@@ -57,7 +59,6 @@ export function ResearchScholarsGrid() {
     {
       name: "Kavya Nair",
       role: "MS Scholar",
-      image: "/placeholder.svg?height=300&width=300&text=Kavya+Nair", // Added image
       interests: ["Machine Learning", "Data Mining", "Anomaly Detection"],
       joiningDate: "January 2023",
       expectedCompletion: "December 2024",
@@ -76,7 +77,6 @@ export function ResearchScholarsGrid() {
     {
       name: "Arjun Singh",
       role: "Research Intern",
-      image: "/placeholder.svg?height=300&width=300&text=Arjun+Singh", // Added image
       interests: ["Computer Vision", "Image Processing", "Autonomous Vehicles"],
       joiningDate: "May 2024",
       duration: "6 months",
@@ -91,7 +91,6 @@ export function ResearchScholarsGrid() {
     {
       name: "Meera Krishnan",
       role: "Research Intern",
-      image: "/placeholder.svg?height=300&width=300&text=Meera+Krishnan", // Added image
       interests: ["AI", "Machine Learning", "Healthcare AI"],
       joiningDate: "June 2024",
       duration: "4 months",
@@ -115,21 +114,16 @@ export function ResearchScholarsGrid() {
 
   const ScholarCard = ({ scholar, showCompletion = true }: { scholar: any; showCompletion?: boolean }) => (
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-0 shadow-lg">
-      {/* Image Section */}
-      <div className="h-48 bg-gradient-to-br from-blue-100 to-blue-200 relative overflow-hidden">
-        <img
-          src={scholar.image || "/placeholder.svg?height=300&width=300&text=Scholar"}
-          alt={scholar.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <Badge className="bg-white/90 text-blue-600">{scholar.role}</Badge>
-        </div>
-      </div>
-
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+              {scholar.name
+                .split(" ")
+                .map((n: string) => n[0])
+                .join("")}
+            </div>
+          </div>
           <Badge variant="secondary" className="group-hover:bg-blue-100 transition-colors">
             {scholar.role}
           </Badge>
@@ -256,13 +250,13 @@ export function ResearchScholarsGrid() {
 
             <div className="grid md:grid-cols-3 gap-6">
               <div className="md:col-span-1">
-                {/* Updated Modal Image */}
-                <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-48 overflow-hidden mb-4">
-                  <img
-                    src={selectedScholar.image || "/placeholder.svg?height=300&width=300&text=Scholar"}
-                    alt={selectedScholar.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-48 flex items-center justify-center mb-4">
+                  <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                    {selectedScholar.name
+                      .split(" ")
+                      .map((n: string) => n[0])
+                      .join("")}
+                  </div>
                 </div>
 
                 <div className="space-y-2">
@@ -323,26 +317,20 @@ export function ResearchScholarsGrid() {
                         <Mail className="w-4 h-4 mr-2" />
                         <span className="text-sm">{selectedScholar.email}</span>
                       </div>
-                      {selectedScholar.phone && (
-                        <div className="flex items-center text-gray-600">
-                          <Phone className="w-4 h-4 mr-2" />
-                          <span className="text-sm">{selectedScholar.phone}</span>
-                        </div>
-                      )}
+                      <div className="flex items-center text-gray-600">
+                        <Phone className="w-4 h-4 mr-2" />
+                        <span className="text-sm">{selectedScholar.phone}</span>
+                      </div>
                     </div>
                     <div className="space-y-2">
-                      {selectedScholar.office && (
-                        <div className="flex items-center text-gray-600">
-                          <MapPin className="w-4 h-4 mr-2" />
-                          <span className="text-sm">{selectedScholar.office}</span>
-                        </div>
-                      )}
-                      {selectedScholar.supervisor && (
-                        <div className="flex items-center text-gray-600">
-                          <User className="w-4 h-4 mr-2" />
-                          <span className="text-sm">Supervisor: {selectedScholar.supervisor}</span>
-                        </div>
-                      )}
+                      <div className="flex items-center text-gray-600">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        <span className="text-sm">{selectedScholar.office}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <User className="w-4 h-4 mr-2" />
+                        <span className="text-sm">Supervisor: {selectedScholar.supervisor}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
