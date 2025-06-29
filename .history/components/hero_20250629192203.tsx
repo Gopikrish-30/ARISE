@@ -37,19 +37,31 @@ export function Hero() {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                   ASPIRE
-                  <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
                     Advancing Sustainable Pavement Innovation and Research Ensemble
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
+                  <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
                     at IIT Palakkad
                   </span>
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-2xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
+                ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
+    <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
+      Advancing Sustainable Pavement Innovation and Research Ensemble
+    </span>
+    <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
+      at IIT Palakkad
+    </span>
+  </p>
+</div>
+
+              {/* Description */}
+              <p className="text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
                 ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
                 We strive to build the future of transportation infrastructure through innovative civil engineering solutions and collaborative excellence.
               </p>
@@ -76,6 +88,7 @@ export function Hero() {
                 </Button>
               </div>
             </div>
+
           </div>
 
           {/* Scroll Indicator */}
@@ -86,7 +99,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </span>
 
       {/* Custom Styles */}
       <style jsx>{`

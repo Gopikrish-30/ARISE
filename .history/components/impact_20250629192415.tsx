@@ -35,18 +35,3 @@ export function Impact() {
           {stats.map((stat, index) => (
             <Link
               key={index}
-              href={stat.link}
-              className="text-center group hover:scale-105 transition-transform duration-200"
-            >
-              <stat.icon className="w-12 h-12 mx-auto mb-4 text-blue-200 group-hover:text-white transition-colors" />
-              <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:text-white transition-colors">
-                {stat.number}
-              </div>
-              <div className="text-blue-200 group-hover:text-blue-100 transition-colors">{stat.label}</div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}

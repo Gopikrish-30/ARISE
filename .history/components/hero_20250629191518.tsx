@@ -3,14 +3,26 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, Users, BookOpen, Award, TrendingUp, ChevronDown } from "lucide-react"
 
 export function Hero() {
+  const [currentStat, setCurrentStat] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+
+  const stats = [
+    { icon: Users, number: "25+", label: "Research Students" },
+    { icon: BookOpen, number: "75+", label: "Publications" },
+    { icon: Award, number: "15+", label: "Awards" },
+    { icon: TrendingUp, number: "10+", label: "Years of Excellence" },
+  ]
 
   useEffect(() => {
     setIsVisible(true)
-  }, [])
+    const interval = setInterval(() => {
+      setCurrentStat((prev) => (prev + 1) % stats.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [stats.length])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -37,19 +49,19 @@ export function Hero() {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                   ASPIRE
-                  <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
                     Advancing Sustainable Pavement Innovation and Research Ensemble
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
+                  <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
                     at IIT Palakkad
                   </span>
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-2xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
                 ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
                 We strive to build the future of transportation infrastructure through innovative civil engineering solutions and collaborative excellence.
               </p>
@@ -76,6 +88,8 @@ export function Hero() {
                 </Button>
               </div>
             </div>
+
+            {/* Right Content - Removed Our Impact stats display as per request */}
           </div>
 
           {/* Scroll Indicator */}
@@ -118,7 +132,6 @@ export function Hero() {
         
         .animate-fade-in-right {
           animation: fade-in-right 0.8s ease-out 0.3s forwards;
-        }
       `}</style>
     </section>
   )

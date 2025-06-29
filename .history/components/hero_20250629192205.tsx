@@ -37,19 +37,19 @@ export function Hero() {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                   ASPIRE
-                  <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
                     Advancing Sustainable Pavement Innovation and Research Ensemble
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
+                  <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
                     at IIT Palakkad
                   </span>
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-2xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
                 ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
                 We strive to build the future of transportation infrastructure through innovative civil engineering solutions and collaborative excellence.
               </p>
@@ -70,12 +70,25 @@ export function Hero() {
                 <Button
                   asChild
                   size="lg"
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                >
+                  <Link href="/research">
+                    Explore Our Research
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  size="lg"
                   className="bg-white/90 backdrop-blur-sm text-gray-800 hover:bg-white px-8 py-4 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                 >
                   <Link href="/join-us">Join Our Team</Link>
                 </Button>
               </div>
             </div>
+
           </div>
 
           {/* Scroll Indicator */}
@@ -86,7 +99,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </div>
+      </span>
 
       {/* Custom Styles */}
       <style jsx>{`

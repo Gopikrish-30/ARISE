@@ -42,11 +42,3 @@ export function Impact() {
               <div className="text-4xl md:text-5xl font-bold mb-2 group-hover:text-white transition-colors">
                 {stat.number}
               </div>
-              <div className="text-blue-200 group-hover:text-blue-100 transition-colors">{stat.label}</div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}

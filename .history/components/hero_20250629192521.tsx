@@ -46,13 +46,6 @@ export function Hero() {
                     at IIT Palakkad
                   </span>
                 </h1>
-              </div>
-
-              {/* Description */}
-              <p className="text-2xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
-                ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
-                We strive to build the future of transportation infrastructure through innovative civil engineering solutions and collaborative excellence.
-              </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">

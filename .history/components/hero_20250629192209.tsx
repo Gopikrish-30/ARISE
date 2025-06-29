@@ -37,19 +37,19 @@ export function Hero() {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                   ASPIRE
-                  <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
                     Advancing Sustainable Pavement Innovation and Research Ensemble
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
+                  <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
                     at IIT Palakkad
                   </span>
                 </h1>
               </div>
 
               {/* Description */}
-              <p className="text-2xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
+              <p className="text-xl text-gray-100 leading-relaxed max-w-2xl drop-shadow-md">
                 ASPIRE is dedicated to pioneering research in sustainable pavement materials, advanced design optimization, and infrastructure resilience.
                 We strive to build the future of transportation infrastructure through innovative civil engineering solutions and collaborative excellence.
               </p>
@@ -104,6 +104,19 @@ export function Hero() {
         @keyframes fade-in-right {
           from {
             opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        .animate-fade-in-right {
             transform: translateX(30px);
           }
           to {

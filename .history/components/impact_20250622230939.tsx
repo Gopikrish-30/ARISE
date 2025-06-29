@@ -1,25 +1,27 @@
-import { Users, BookOpen, TrendingUp } from "lucide-react"
+import { Users, BookOpen, Award, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
 export function Impact() {
   const stats = [
     {
       icon: Users,
-      number: "Total 9",
-      label: "Research Scholars",
-      link: "/team/scholars",
+      number: "25+",
+      label: "Research Students",
     },
     {
       icon: BookOpen,
-      number: "25+",
-      label: "Journals",
-      link: "/research/journals",
+      number: "75+",
+      label: "Publications",
+    },
+    {
+      icon: Award,
+      number: "15+",
+      label: "Awards",
     },
     {
       icon: TrendingUp,
-      number: "5+",
-      label: "Years",
-      link: "/about",
+      number: "10+",
+      label: "Years of Excellence",
     },
   ]
 
@@ -31,8 +33,13 @@ export function Impact() {
           <p className="text-blue-100 max-w-2xl mx-auto">Numbers that reflect our commitment to excellence</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
+        <div className="grid md:grid-cols-4 gap-8">
+          {[
+            { icon: Users, number: "25+", label: "Research Students", link: "/team/scholars" },
+            { icon: BookOpen, number: "75+", label: "Publications", link: "/research/journals" },
+            { icon: Award, number: "15+", label: "Awards", link: "/achievements" },
+            { icon: TrendingUp, number: "10+", label: "Years of Excellence", link: "/about" },
+          ].map((stat, index) => (
             <Link
               key={index}
               href={stat.link}
