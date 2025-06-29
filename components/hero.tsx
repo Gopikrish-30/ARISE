@@ -52,7 +52,7 @@ export function Hero() {
   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
     ASPIRE
     <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
-      Advancing Excellence in Sustainable Pavement Innovation and Research
+      Advancing Sustainable Pavement Innovation and Research Ensemble
     </span>
     <span className="block text-xl md:text-2xl lg:text-3xl text-gray-100 font-normal mt-2">
       at IIT Palakkad
