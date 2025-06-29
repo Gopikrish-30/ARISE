@@ -74,9 +74,6 @@ export function Navbar() {
             <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
               Contact
             </Link>
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="https://resap.iitpkd.ac.in/" target="_blank" rel="noopener noreferrer">Join Us</Link>
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -114,7 +111,7 @@ export function Navbar() {
                 Contact
               </Link>
               <Button asChild className="bg-blue-600 hover:bg-blue-700 w-fit">
-                <Link href="https://resap.iitpkd.ac.in/" target="_blank" rel="noopener noreferrer">Join Us</Link>
+                <Link href="/join-us">Join Us</Link>
               </Button>
             </div>
           </div>
