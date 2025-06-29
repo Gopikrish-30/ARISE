@@ -1,0 +1,19 @@
+<div className="absolute inset-0 bg-black/20" />
+=======
+        {/* Enhanced gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70" />
+>>>>>>> REPLACE
+
+<<<<<<< SEARCH
+              {/* Left Content */}
+              <div className={`space-y-8 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
+              {/* Badge */}
+              {/* Removed Pavement Engineering Research badge as per request */}
+
+              {/* Main Heading */}
+              <div className="space-y-4">
+  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight drop-shadow-lg">
+    ASPIRE
+    <span className="block text-blue-300 text-base md:text-lg lg:text-xl">
+      Advancing Excellence in Sustainable Pavement Innovation and Research
+    </span>
