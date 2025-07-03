@@ -9,6 +9,7 @@ import ResearchPage from "./research/page"
 import TeamPage from "./team/page"
 import { ProgramsGrid } from "@/components/programs-grid"
 import "../styles/globals.css"
+import CollaborationsPage from "./collaborations/page"
 
 export default function HomePage() {
   return (
@@ -35,6 +36,9 @@ export default function HomePage() {
       </section>
       <section id="achievements" className="min-h-screen">
         <AchievementsPage />
+      </section>
+      <section id="collaborations" className="min-h-screen">
+        <CollaborationsPage />
       </section>
       <section id="activity" className="min-h-screen">
         <Activity />

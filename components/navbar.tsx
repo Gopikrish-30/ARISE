@@ -20,7 +20,7 @@ export function Navbar() {
   useEffect(() => {
     if (!isHome) return
 
-    const sections = ["hero", "about", "team", "facilities", "research", "achievements", "activity", "contact"]
+    const sections = ["hero", "about", "team", "facilities", "research", "achievements", "collaborations", "activity", "contact"]
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3
@@ -124,7 +124,8 @@ export function Navbar() {
                     <a href="#programs" className="block px-3 py-2 text-gray-700 hover:bg-blue-50 text-base">Programs</a>
                   </div>
                 </div>
-                <a href="#achievements" className={linkClass("achievements") + " text-base px-2"}>Achievement and Awards</a>
+                <a href="#achievements" className={linkClass("achievements") + " text-base px-2"}>Achievements & Awards</a>
+                <a href="#collaborations" className={linkClass("collaborations") + " text-base px-2"}>Collaborations</a>
                 <a href="#activity" className={linkClass("activity") + " text-base px-2"}>Activities</a>
                 <a href="#contact" className={linkClass("contact") + " text-base px-2"}>Contact</a>
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 py-1 px-3 text-base ml-2">
@@ -209,6 +210,7 @@ export function Navbar() {
                     )}
                   </div>
                   <a href="#achievements" className={linkClass("achievements") + " text-sm"}>Achievement and Awards</a>
+                  <a href="#collaborations" className={linkClass("collaborations") + " text-sm"}>Collaborations</a>
                   <a href="#activity" className={linkClass("activity") + " text-sm"}>Activities</a>
                   <a href="#contact" className={linkClass("contact") + " text-sm"}>Contact</a>
                   <Button asChild className="bg-blue-600 hover:bg-blue-700 w-fit py-1 px-3 text-sm">
@@ -242,6 +244,13 @@ export function Navbar() {
               </a>
               <Link href="/contact" className={linkClass("contact") + " text-sm"}>
                 Contact
+              </Link>
+              <Link
+                href={isHome ? "#collaborations" : "/#collaborations"}
+                className={`text-base font-medium transition-colors duration-200 hover:text-blue-600 ${activeSection === "collaborations" ? "text-blue-600" : "text-gray-700"}`}
+                onClick={() => setIsOpen(false)}
+              >
+                Collaborations
               </Link>
               <Button asChild className="bg-blue-600 hover:bg-blue-700 w-fit py-1 px-3 text-sm">
                 <Link href="https://resap.iitpkd.ac.in/" target="_blank" rel="noopener noreferrer">Join Us</Link>

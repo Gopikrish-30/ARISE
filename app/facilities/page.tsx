@@ -126,32 +126,9 @@ export default function FacilitiesPage() {
                               />
                             </a>
                           </div>
-                          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                              <p className="text-gray-600 mb-4">{facility.description}</p>
-                            </div>
-                            <div className="space-y-4">
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
-                                <a
-                                  href={facility.externalLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-blue-600 hover:underline break-all"
-                                >
-                                  {facility.externalLink}
-                                </a>
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
-                                <p className="text-gray-600 break-all">{facility.contact}</p>
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                                <p className="text-gray-600">{facility.location}</p>
-                              </div>
-                            </div>
+                          <CardContent className="p-6">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                            <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
                           </CardContent>
                         </Card>
                       ))
@@ -174,32 +151,9 @@ export default function FacilitiesPage() {
                               />
                             </a>
                           </div>
-                          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                              <p className="text-gray-600 mb-4">{facility.description}</p>
-                            </div>
-                            <div className="space-y-4">
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
-                                <a
-                                  href={facility.externalLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-blue-600 hover:underline break-all"
-                                >
-                                  {facility.externalLink}
-                                </a>
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
-                                <p className="text-gray-600 break-all">{facility.contact}</p>
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                                <p className="text-gray-600">{facility.location}</p>
-                              </div>
-                            </div>
+                          <CardContent className="p-6">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                            <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
                           </CardContent>
                         </Card>
                       ))
@@ -224,32 +178,9 @@ export default function FacilitiesPage() {
                           />
                         </a>
                       </div>
-                      <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                          <p className="text-gray-600 mb-4">{facility.description}</p>
-                        </div>
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
-                            <a
-                              href={facility.externalLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline break-all"
-                            >
-                              {facility.externalLink}
-                            </a>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
-                            <p className="text-gray-600 break-all">{facility.contact}</p>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                            <p className="text-gray-600">{facility.location}</p>
-                          </div>
-                        </div>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                        <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
                       </CardContent>
                     </Card>
                   ))

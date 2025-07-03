@@ -11,6 +11,7 @@ import { Mail, Calendar, ExternalLink, Phone, MapPin, User, Linkedin, Globe } fr
 export function ResearchScholarsGrid() {
   const [selectedScholar, setSelectedScholar] = useState<any>(null)
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [tab, setTab] = useState("phd")
 
   const phdScholars = [
     {
@@ -243,36 +244,24 @@ export function ResearchScholarsGrid() {
 
   return (
     <>
-      <Tabs defaultValue="phd" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 max-w-lg mx-auto mb-8">
-          <TabsTrigger value="phd" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-            PhD Scholars
-          </TabsTrigger>
-          <TabsTrigger value="ms" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-            MS Scholars
-          </TabsTrigger>
-          <TabsTrigger value="interns" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">
-            Research Interns
-          </TabsTrigger>
+      <Tabs value={tab} onValueChange={setTab} className="w-full mb-8">
+        <TabsList className="mb-6 flex gap-2">
+          <TabsTrigger value="phd">PhD Scholars</TabsTrigger>
+          <TabsTrigger value="ms">MS Scholars</TabsTrigger>
         </TabsList>
         <TabsContent value="phd">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {phdScholars.map((scholar: any, index: number) => (
-              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} />
+          {/* PhD Scholars Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {phdScholars.map((scholar, idx) => (
+              <ScholarCard key={scholar.email || scholar.name || idx} scholar={scholar} />
             ))}
           </div>
         </TabsContent>
         <TabsContent value="ms">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {msScholars.map((scholar: any, index: number) => (
-              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} />
-            ))}
-          </div>
-        </TabsContent>
-        <TabsContent value="interns">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {interns.map((scholar: any, index: number) => (
-              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} showCompletion={false} />
+          {/* MS Scholars Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {msScholars.map((scholar, idx) => (
+              <ScholarCard key={scholar.email || scholar.name || idx} scholar={scholar} />
             ))}
           </div>
         </TabsContent>
