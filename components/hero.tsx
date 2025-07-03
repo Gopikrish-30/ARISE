@@ -6,22 +6,35 @@ import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
 
 export function Hero() {
+  const images = [
+    "/images/hero2.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus",
+    "/images/hero.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus",
+    "/images/hero1.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus",
+    "/images/hero3.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus",
+    "/images/hero4.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus",
+  ]
+  const [currentImage, setCurrentImage] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length)
+    }, 3000)
+    return () => clearInterval(interval)
   }, [])
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image - Using placeholder */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/hero2.jpg?height=1080&width=1920&text=IIT+Palakkad+Campus')`,
-          }}
-        />
+      {/* Background Image - Sliding */}
+      <div className="absolute inset-0 z-0 transition-all duration-700">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 ${idx === currentImage ? 'opacity-100' : 'opacity-0'}`}
+            style={{ backgroundImage: `url('${img}')` }}
+          />
+        ))}
         {/* Darker overlay for better text visibility */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -40,7 +53,7 @@ export function Hero() {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
                   ASPIRE
                   <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
-                    Advancing Sustainable Pavement Innovation and Research Ensemble
+                    CENTER FOR ADVANCING SUSTAINABLE PAVEMENT INNOVATION AND RESEARCH
                   </span>
                   <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
                     at IIT Palakkad
@@ -57,14 +70,17 @@ export function Hero() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
-                  asChild
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                  onClick={() => {
+                    const el = document.getElementById("research");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                 >
-                  <Link href="/research">
-                    Explore Our Research
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
+                  Explore Our Research
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
 
                 <Button
@@ -72,7 +88,13 @@ export function Hero() {
                   size="lg"
                   className="bg-white/90 backdrop-blur-sm text-gray-800 hover:bg-white px-8 py-4 text-lg font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
                 >
-                  <Link href="/join-us">Join Our Team</Link>
+                  <a
+                    href="https://resap.iitpkd.ac.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Join Our Team
+                  </a>
                 </Button>
               </div>
             </div>

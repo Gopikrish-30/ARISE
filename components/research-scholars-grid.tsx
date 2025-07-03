@@ -6,10 +6,11 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Mail, Calendar, ExternalLink, Phone, MapPin, User } from 'lucide-react'
+import { Mail, Calendar, ExternalLink, Phone, MapPin, User, Linkedin, Globe } from 'lucide-react'
 
 export function ResearchScholarsGrid() {
   const [selectedScholar, setSelectedScholar] = useState<any>(null)
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   const phdScholars = [
     {
@@ -22,6 +23,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "101914001@smail.iitpkd.ac.in",
       iitProfile: "https://iitpkd.ac.in/people/101914001",
+      linkedin: "https://linkedin.com/in/ajeesh-k-example",
+      website: "https://ajeeshk.example.com",
     },
     {
       name: "Bhavinlal K",
@@ -33,6 +36,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "102104003@smail.iitpkd.ac.in",
       iitProfile: "",
+      linkedin: "https://linkedin.com/in/bhavinlal-k-example",
+      website: "",
     },
     {
       name: "Arun Sagar K M",
@@ -44,6 +49,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "arunsagarkm@gmail.com",
       iitProfile: "",
+      linkedin: "",
+      website: "",
     },
     {
       name: "Vilas Sankar K P",
@@ -55,6 +62,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "162314002@smail.iitpkd.ac.in",
       iitProfile: "",
+      linkedin: "",
+      website: "",
     },
     {
       name: "Silpa Sekhar G",
@@ -66,6 +75,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "102314011@smail.iitpkd.ac.in",
       iitProfile: "",
+      linkedin: "",
+      website: "",
     },
     {
       name: "Issac J",
@@ -77,6 +88,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "102404007@smail.iitpkd.ac.in",
       iitProfile: "",
+      linkedin: "",
+      website: "",
     },
     {
       name: "Saneesh Sabu",
@@ -88,6 +101,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "102504010@smail.iitpkd.ac.in",
       iitProfile: "",
+      linkedin: "",
+      website: "",
     },
   ]
 
@@ -102,6 +117,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "purkayasthasudeshna265@gmail.com",
       iitProfile: "https://iitpkd.ac.in/people/102203002",
+      linkedin: "",
+      website: "",
     },
     {
       name: "Anandlal M",
@@ -113,6 +130,8 @@ export function ResearchScholarsGrid() {
       bio: "",
       email: "anandlal@iitpkd.ac.in",
       iitProfile: "https://iitpkd.ac.in/people/102203001",
+      linkedin: "",
+      website: "",
     },
   ]
 
@@ -124,6 +143,11 @@ export function ResearchScholarsGrid() {
 
   const handleProfileClick = (profileUrl: string) => {
     window.open(profileUrl, "_blank")
+  }
+
+  const handleViewDetails = (scholar: any) => {
+    setSelectedScholar(scholar)
+    setDialogOpen(true)
   }
 
   const ScholarCard = ({ scholar, showCompletion = true }: { scholar: any; showCompletion?: boolean }) => (
@@ -181,7 +205,7 @@ export function ResearchScholarsGrid() {
           )}
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mb-4 text-sm text-gray-600">
           <div className="flex gap-2">
             <Button
               variant="outline"
@@ -202,18 +226,16 @@ export function ResearchScholarsGrid() {
               IIT Profile
             </Button>
           </div>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                size="sm"
-                className="w-full bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200"
-                onClick={() => setSelectedScholar(scholar)}
-              >
-                <User className="w-4 h-4 mr-2" />
-                View Details
-              </Button>
-            </DialogTrigger>
-          </Dialog>
+          <div className="flex flex-col gap-2">
+            <Button
+              size="sm"
+              className="w-full bg-blue-600 hover:bg-blue-700 transform hover:scale-105 transition-all duration-200"
+              onClick={() => handleViewDetails(scholar)}
+            >
+              <User className="w-4 h-4 mr-2" />
+              View Details
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>
@@ -233,137 +255,139 @@ export function ResearchScholarsGrid() {
             Research Interns
           </TabsTrigger>
         </TabsList>
-
         <TabsContent value="phd">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {phdScholars.map((scholar, index) => (
-              <ScholarCard key={index} scholar={scholar} />
+            {phdScholars.map((scholar: any, index: number) => (
+              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} />
             ))}
           </div>
         </TabsContent>
-
         <TabsContent value="ms">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {msScholars.map((scholar, index) => (
-              <ScholarCard key={index} scholar={scholar} />
+            {msScholars.map((scholar: any, index: number) => (
+              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} />
             ))}
           </div>
         </TabsContent>
-
         <TabsContent value="interns">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {interns.map((scholar, index) => (
-              <ScholarCard key={index} scholar={scholar} showCompletion={false} />
+            {interns.map((scholar: any, index: number) => (
+              <ScholarCard key={scholar.email || scholar.name || index} scholar={scholar} showCompletion={false} />
             ))}
           </div>
         </TabsContent>
       </Tabs>
-
-      {/* Scholar Details Modal */}
-      {selectedScholar && (
-        <Dialog open={!!selectedScholar} onOpenChange={() => setSelectedScholar(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-blue-600">{selectedScholar.name}</DialogTitle>
-            </DialogHeader>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="md:col-span-1">
-                {/* Updated Modal Image */}
-                <div className="bg-white rounded-lg h-48 overflow-hidden mb-4">
-                  <img
-                    src={selectedScholar.image || "/placeholder.svg?height=300&width=300&text=Scholar"}
-                    alt={selectedScholar.name}
-                    className="w-full h-full object-contain"
-                  />
+      {/* Single Dialog always rendered, controlled by dialogOpen */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          {selectedScholar && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-blue-600">{selectedScholar.name}</DialogTitle>
+              </DialogHeader>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="md:col-span-1">
+                  <div className="bg-white rounded-lg h-48 overflow-hidden mb-4">
+                    <img
+                      src={selectedScholar.image || "/placeholder.svg?height=300&width=300&text=Scholar"}
+                      alt={selectedScholar.name}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Button
+                      className="w-full bg-blue-600 hover:bg-blue-700"
+                      onClick={() => handleProfileClick(selectedScholar.iitProfile)}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      IIT Profile
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => handleEmailClick(selectedScholar.email, selectedScholar.name)}
+                    >
+                      <Mail className="w-4 h-4 mr-2" />
+                      Send Email
+                    </Button>
+                  </div>
                 </div>
-
-                <div className="space-y-2">
-                  <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700"
-                    onClick={() => handleProfileClick(selectedScholar.iitProfile)}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    IIT Profile
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => handleEmailClick(selectedScholar.email, selectedScholar.name)}
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Email
-                  </Button>
+                <div className="md:col-span-2">
+                  <Badge className="mb-4 bg-blue-100 text-blue-800">{selectedScholar.role}</Badge>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">Research Interests</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedScholar.interests.map((interest: string, idx: number) => (
+                          <Badge key={idx} variant="outline" className="hover:bg-blue-50">
+                            {interest}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-2">About</h4>
+                      <p className="text-gray-600 leading-relaxed">{selectedScholar.bio}</p>
+                    </div>
+                    {selectedScholar.publications && (
+                      <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-600">{selectedScholar.publications}</div>
+                          <div className="text-sm text-gray-600">Publications</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-2xl font-bold text-blue-600">{selectedScholar.conferences}</div>
+                          <div className="text-sm text-gray-600">Conferences</div>
+                        </div>
+                      </div>
+                    )}
+                    <div className="grid md:grid-cols-2 gap-4 pt-4 border-t">
+                      <div className="space-y-2">
+                        <div className="flex items-center text-gray-600">
+                          <Mail className="w-4 h-4 mr-2" />
+                          <span className="text-sm">{selectedScholar.email}</span>
+                        </div>
+                        {/* Social links below email */}
+                        <div className="flex flex-col gap-1 mt-2">
+                          <span className="text-xs text-gray-500">Social Links</span>
+                          <div className="flex gap-2">
+                            <Button size="icon" variant="ghost" className={`rounded-full ${selectedScholar.linkedin ? 'bg-blue-100 hover:bg-blue-200' : 'bg-gray-100 cursor-not-allowed'}`} onClick={() => selectedScholar.linkedin && window.open(selectedScholar.linkedin, '_blank')} title="LinkedIn" disabled={!selectedScholar.linkedin}>
+                              <Linkedin className={`w-5 h-5 ${selectedScholar.linkedin ? 'text-blue-700' : 'text-gray-400'}`} />
+                            </Button>
+                            <Button size="icon" variant="ghost" className={`rounded-full ${selectedScholar.website ? 'bg-gray-100 hover:bg-gray-200' : 'bg-gray-100 cursor-not-allowed'}`} onClick={() => selectedScholar.website && window.open(selectedScholar.website, '_blank')} title="Personal Website" disabled={!selectedScholar.website}>
+                              <Globe className={`w-5 h-5 ${selectedScholar.website ? 'text-gray-700' : 'text-gray-400'}`} />
+                            </Button>
+                          </div>
+                        </div>
+                        {selectedScholar.phone && (
+                          <div className="flex items-center text-gray-600">
+                            <Phone className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{selectedScholar.phone}</span>
+                          </div>
+                        )}
+                      </div>
+                      <div className="space-y-2">
+                        {selectedScholar.office && (
+                          <div className="flex items-center text-gray-600">
+                            <MapPin className="w-4 h-4 mr-2" />
+                            <span className="text-sm">{selectedScholar.office}</span>
+                          </div>
+                        )}
+                        {selectedScholar.supervisor && (
+                          <div className="flex items-center text-gray-600">
+                            <User className="w-4 h-4 mr-2" />
+                            <span className="text-sm">Supervisor: {selectedScholar.supervisor}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="md:col-span-2">
-                <Badge className="mb-4 bg-blue-100 text-blue-800">{selectedScholar.role}</Badge>
-
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Research Interests</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedScholar.interests.map((interest: string, idx: number) => (
-                        <Badge key={idx} variant="outline" className="hover:bg-blue-50">
-                          {interest}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">About</h4>
-                    <p className="text-gray-600 leading-relaxed">{selectedScholar.bio}</p>
-                  </div>
-
-                  {selectedScholar.publications && (
-                    <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">{selectedScholar.publications}</div>
-                        <div className="text-sm text-gray-600">Publications</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-600">{selectedScholar.conferences}</div>
-                        <div className="text-sm text-gray-600">Conferences</div>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t">
-                    <div className="space-y-2">
-                      <div className="flex items-center text-gray-600">
-                        <Mail className="w-4 h-4 mr-2" />
-                        <span className="text-sm">{selectedScholar.email}</span>
-                      </div>
-                      {selectedScholar.phone && (
-                        <div className="flex items-center text-gray-600">
-                          <Phone className="w-4 h-4 mr-2" />
-                          <span className="text-sm">{selectedScholar.phone}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="space-y-2">
-                      {selectedScholar.office && (
-                        <div className="flex items-center text-gray-600">
-                          <MapPin className="w-4 h-4 mr-2" />
-                          <span className="text-sm">{selectedScholar.office}</span>
-                        </div>
-                      )}
-                      {selectedScholar.supervisor && (
-                        <div className="flex items-center text-gray-600">
-                          <User className="w-4 h-4 mr-2" />
-                          <span className="text-sm">Supervisor: {selectedScholar.supervisor}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-      )}
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

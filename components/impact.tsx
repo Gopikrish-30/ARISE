@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Users, BookOpen, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
@@ -50,3 +51,6 @@ export function Impact() {
     </section>
   )
 }
+=======
+// File intentionally left empty. Impact section/component removed as per user request.
+>>>>>>> ace4e8d (Your commit message here)

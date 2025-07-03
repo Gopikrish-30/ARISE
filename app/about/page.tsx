@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 pt-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Our Research Lab</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -234,24 +234,6 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {[
-              { icon: Calendar, number: "10+", label: "Years of Excellence", link: "/about" },
-              { icon: Users, number: "50+", label: "Research Scholars", link: "/team/scholars" },
-              { icon: Award, number: "100+", label: "Publications", link: "/research/journals" },
-              { icon: Globe, number: "25+", label: "Awards", link: "/achievements" },
-            ].map((stat, index) => (
-              <Link key={index} href={stat.link} className="group hover:scale-105 transition-transform">
-                <stat.icon className="w-12 h-12 mx-auto mb-4 text-blue-200 group-hover:text-white transition-colors" />
-                <div className="text-4xl font-bold mb-2 group-hover:text-white transition-colors">{stat.number}</div>
-                <div className="text-blue-200 group-hover:text-blue-100 transition-colors">{stat.label}</div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

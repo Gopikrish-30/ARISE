@@ -180,13 +180,13 @@ export function ProgramsGrid() {
         <div className="mb-4">
           <h4 className="font-semibold text-gray-900 mb-2">Key Objectives</h4>
           <ul className="space-y-1">
-            {program.objectives.slice(0, 3).map((objective, idx) => (
+            {(Array.isArray(program.objectives) ? program.objectives.slice(0, 3) : []).map((objective: string, idx: number) => (
               <li key={idx} className="text-sm text-gray-600 flex items-start">
                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 mt-2 flex-shrink-0"></div>
                 {objective}
               </li>
             ))}
-            {program.objectives.length > 3 && (
+            {Array.isArray(program.objectives) && program.objectives.length > 3 && (
               <li className="text-sm text-gray-500 italic">+{program.objectives.length - 3} more objectives</li>
             )}
           </ul>

@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Eye } from "lucide-react"
 import { useState } from "react"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 export default function FacilitiesPage() {
   const facilities = [
@@ -15,8 +16,8 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/albedometer",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Workshop - 8",
+      section: "bitumen",
     },
-
     {
       title: "Asphalt Concrete Mixer",
       description: "It Used for Mixing Bituminous Materials in the Laboratory.",
@@ -24,8 +25,8 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/asphalt-concrete-mixer",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Casting Yard",
+      section: "bitumen",
     },
-
     {
       title: "Asphalt Saw",
       description: "This saw can be used to cut concrete, asphalt and rock cores, and irregular rock samples in order to obtain geometrically defined samples.",
@@ -33,8 +34,8 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/asphalt-saw",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Near Casting Yard",
+      section: "bitumen",
     },
-
     {
       title: "Rolling Thin Film Oven",
       description: "It is used for measuring the effect of heat and air on a moving film of semi-solid bituminous materials",
@@ -42,8 +43,8 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/rolling-thin-film-oven",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Casting Yard",
+      section: "bitumen",
     },
-
     {
       title: "Oven",
       description: "It can be used for soil, aggregates and asphalt testing, It has stainless steel internal and external lining, fast heat up, easy to read digital control and forced convection airflow for uniform temperature throughout the oven chamber.",
@@ -51,8 +52,8 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/oven",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Casting - Yard",
+      section: "cement",
     },
-    
     {
       title: "Rotational Viscometer",
       description: "It is Used to measure viscosity by analyzing the torque required to rotate a spindle submerged in a fluid at a constant speed",
@@ -60,13 +61,12 @@ export default function FacilitiesPage() {
       externalLink: "https://iitpkd.ac.in/facilities/rotational-viscometer",
       contact: "jthin@iitpkd.ac.in | 04923226470",
       location: "Casting - Yard",
+      section: "evaluation",
     },
-
-  
+    // Add more facilities and assign to 'cement', 'bitumen', or 'evaluation' as needed
   ]
 
-  // Removed categories and filtering as per user request
-
+  const facilitiesBySection = (section: string) => facilities.filter(f => f.section === section)
 
   const handleViewDetails = (facility: any) => {
     // Navigate to detailed facility page or open modal
@@ -96,61 +96,167 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      {/* Facilities Content */}
+      {/* Facilities Content with Dropdown Tabs */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          
-
-          {/* Facilities Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
-            {filteredFacilities.map((facility, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="h-64 bg-gray-200 relative overflow-hidden">
-                  <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={facility.image || "/placeholder.svg"}
-                      alt={facility.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </a>
-                </div>
-
-                  <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                      <p className="text-gray-600 mb-4">{facility.description}</p>
-
-
-                      
-                    </div>
-
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
-                        <a
-                          href={facility.externalLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-blue-600 hover:underline break-all"
-                        >
-                          {facility.externalLink}
+          <Tabs defaultValue="materials" className="w-full">
+            <TabsList className="mb-6 flex gap-2">
+              <TabsTrigger value="materials">Materials</TabsTrigger>
+              <TabsTrigger value="evaluation">Evaluation</TabsTrigger>
+            </TabsList>
+            <TabsContent value="materials">
+              <Tabs defaultValue="bitumen" className="w-full">
+                <TabsList className="mb-6 flex gap-2">
+                  <TabsTrigger value="cement">Cement</TabsTrigger>
+                  <TabsTrigger value="bitumen">Bitumen</TabsTrigger>
+                </TabsList>
+                <TabsContent value="cement">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {facilitiesBySection("cement").length === 0 ? (
+                      <div className="col-span-2 text-center text-gray-600 py-12">No cement-related facilities yet.</div>
+                    ) : (
+                      facilitiesBySection("cement").map((facility, index) => (
+                        <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                          <div className="h-64 bg-gray-200 relative overflow-hidden">
+                            <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
+                              <img
+                                src={facility.image || "/placeholder.svg"}
+                                alt={facility.title}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </a>
+                          </div>
+                          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                              <p className="text-gray-600 mb-4">{facility.description}</p>
+                            </div>
+                            <div className="space-y-4">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
+                                <a
+                                  href={facility.externalLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:underline break-all"
+                                >
+                                  {facility.externalLink}
+                                </a>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
+                                <p className="text-gray-600 break-all">{facility.contact}</p>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
+                                <p className="text-gray-600">{facility.location}</p>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))
+                    )}
+                  </div>
+                </TabsContent>
+                <TabsContent value="bitumen">
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {facilitiesBySection("bitumen").length === 0 ? (
+                      <div className="col-span-2 text-center text-gray-600 py-12">No bitumen-related facilities yet.</div>
+                    ) : (
+                      facilitiesBySection("bitumen").map((facility, index) => (
+                        <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                          <div className="h-64 bg-gray-200 relative overflow-hidden">
+                            <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
+                              <img
+                                src={facility.image || "/placeholder.svg"}
+                                alt={facility.title}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </a>
+                          </div>
+                          <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                              <p className="text-gray-600 mb-4">{facility.description}</p>
+                            </div>
+                            <div className="space-y-4">
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
+                                <a
+                                  href={facility.externalLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:underline break-all"
+                                >
+                                  {facility.externalLink}
+                                </a>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
+                                <p className="text-gray-600 break-all">{facility.contact}</p>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
+                                <p className="text-gray-600">{facility.location}</p>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))
+                    )}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </TabsContent>
+            <TabsContent value="evaluation">
+              <div className="grid md:grid-cols-2 gap-8">
+                {facilitiesBySection("evaluation").length === 0 ? (
+                  <div className="col-span-2 text-center text-gray-600 py-12">No evaluation-related facilities yet.</div>
+                ) : (
+                  facilitiesBySection("evaluation").map((facility, index) => (
+                    <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                      <div className="h-64 bg-gray-200 relative overflow-hidden">
+                        <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
+                          <img
+                            src={facility.image || "/placeholder.svg"}
+                            alt={facility.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          />
                         </a>
                       </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
-                        <p className="text-gray-600 break-all">{facility.contact}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                        <p className="text-gray-600">{facility.location}</p>
-                      </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                      <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                          <p className="text-gray-600 mb-4">{facility.description}</p>
+                        </div>
+                        <div className="space-y-4">
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">External Website</h4>
+                            <a
+                              href={facility.externalLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:underline break-all"
+                            >
+                              {facility.externalLink}
+                            </a>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">Contact</h4>
+                            <p className="text-gray-600 break-all">{facility.contact}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
+                            <p className="text-gray-600">{facility.location}</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))
+                )}
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
     </div>

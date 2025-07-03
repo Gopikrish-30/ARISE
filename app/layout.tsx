@@ -8,8 +8,8 @@ import { Footer } from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "IIT Palakkad - Department Showcase",
-  description: "Advancing the frontiers of science and technology through innovative research at IIT Palakkad",
+  title: "ASPIRE",
+  description: "CENTER FOR ADVANCING SUSTAINABLE PAVEMENT INNOVATION AND RESEARCH",
 }
 
 export default function RootLayout({
