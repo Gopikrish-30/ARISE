@@ -21,6 +21,7 @@ export function ResearchScholarsGrid() {
       interests: ["Fibre Reinforced Concrete Pavements"],
       joiningDate: "2019",
       expectedCompletion: "2024",
+      completed: true,
       bio: "",
       email: "101914001@smail.iitpkd.ac.in",
       iitProfile: "https://iitpkd.ac.in/people/101914001",
@@ -180,9 +181,19 @@ export function ResearchScholarsGrid() {
         <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">{scholar.bio}</p>
 
         <div className="space-y-2 mb-4 text-sm text-gray-600">
-          <div className="flex items-center">
-            <Calendar className="w-4 h-4 mr-2 text-blue-600" />
+          <div className="flex items-center gap-4">
+            <Calendar className="w-4 h-4 text-blue-600" />
             <span>Joined: {scholar.joiningDate}</span>
+            {(scholar.completed || scholar.expectedCompletion) && (
+              <>
+                <span>|</span>
+                <span>
+                  {scholar.completed
+                    ? `Completed: ${scholar.expectedCompletion}`
+                    : `Expected: ${scholar.expectedCompletion}`}
+                </span>
+              </>
+            )}
           </div>
           
           {scholar.duration && (

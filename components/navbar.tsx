@@ -17,6 +17,14 @@ export function Navbar() {
   const [mobileResearchDropdownOpen, setMobileResearchDropdownOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   useEffect(() => {
     if (!isHome) return
 
@@ -81,14 +89,40 @@ export function Navbar() {
     `text-gray-700 hover:text-blue-600 transition-colors ${activeSection === sectionId ? "text-blue-600 font-semibold" : ""}`
 
   return (
-    <nav className="bg-white shadow-sm border-b sticky top-0 z-50 min-h-[72px] flex flex-col justify-center">
-      <div className="container mx-auto px-4 flex flex-row items-center min-h-[72px]">
-        {/* Logo at the start */}
-        <Link href="/" className="flex items-center space-x-2 mr-8">
-          <img src="/images/aspire-logo.png" alt="ASPIRE Logo" className="w-24 h-24 object-contain mt-2" />
-        </Link>
-        {/* Navigation links centered and take full width */}
-        <div className="flex-1 flex items-center justify-center">
+    <nav className={`bg-white shadow-sm border-b sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'min-h-[28px]' : 'min-h-[110px]'}`}>
+      <div className={`container mx-auto px-4 flex flex-row items-center justify-between transition-all duration-300 ${scrolled ? 'min-h-[28px] py-0' : 'min-h-[110px] py-4'}`}>
+        {/* Left: ASPIRE logo and center name/tagline */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center space-x-2">
+            <img
+              src="/images/aspire-logo.png"
+              alt="ASPIRE Logo"
+              className={`object-contain transition-all duration-300 ${scrolled ? 'w-20 h-20 mt-0' : 'w-32 h-32 mt-4'}`}
+            />
+          </Link>
+          {!scrolled && (
+            <div className="hidden lg:block">
+              <div className="flex flex-col">
+                <span className="text-xl font-bold text-blue-800 leading-tight">
+                  Centre for Advancing Sustainable Pavement Innovation and Research
+                </span>
+                <span className="text-base text-blue-500 mt-1 tracking-wide">
+                  Innovate &middot; Connect &middot; Sustain
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* Right: IIT Palakkad logo */}
+        <img
+          src="/images/iitpkd-logo.png"
+          alt="IIT Palakkad Logo"
+          className={`object-contain transition-all duration-300 ${scrolled ? 'w-16 h-16 mt-0' : 'w-32 h-32 mt-4'}`}
+        />
+      </div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-2">
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {isHome ? (
               <>
@@ -173,11 +207,12 @@ export function Navbar() {
               </>
             )}
           </div>
+
+          {/* Mobile menu button */}
+          <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-        {/* Mobile menu button */}
-        <button className="md:hidden ml-auto" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
       </div>
       {/* Mobile Navigation */}
       {isOpen && (
