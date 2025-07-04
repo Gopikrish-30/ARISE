@@ -114,11 +114,7 @@ export function Navbar() {
           )}
         </div>
         {/* Right: IIT Palakkad logo */}
-        <img
-          src="/images/iitpkd-logo.png"
-          alt="IIT Palakkad Logo"
-          className={`object-contain transition-all duration-300 ${scrolled ? 'w-16 h-16 mt-0' : 'w-32 h-32 mt-4'}`}
-        />
+        
       </div>
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 py-2">
@@ -217,6 +213,23 @@ export function Navbar() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="md:hidden py-2 border-t">
+          <div className="flex flex-col items-center w-full md:hidden mt-2">
+            <Link href="/" className="flex items-center justify-center">
+              <img
+                src="/images/aspire-logo.png"
+                alt="ASPIRE Logo"
+                className="object-contain w-20 h-20"
+              />
+            </Link>
+            <div className="flex flex-col items-center mt-1">
+              <span className="text-base font-bold text-blue-800 leading-tight text-center">
+                Centre for Advancing Sustainable Pavement Innovation and Research
+              </span>
+              <span className="text-sm text-blue-500 mt-1 tracking-wide text-center">
+                Innovate &middot; Connect &middot; Sustain
+              </span>
+            </div>
+          </div>
           <div className="flex flex-col space-y-2">
             {isHome ? (
               <>
