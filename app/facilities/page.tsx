@@ -96,6 +96,52 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
+      {/* Inline Facilities Overview Section */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">Facilities Overview</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Materials Card */}
+            <div className="bg-white rounded-xl shadow-md p-6 flex flex-col">
+              <h3 className="text-xl font-semibold text-blue-700 mb-4 flex items-center gap-2">
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full"></span> Materials
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <span className="font-bold">I. Bitumen</span>
+                  <div className="ml-4 mt-1">
+                    <div className="mb-2">
+                      <span className="font-semibold">A. Binder:</span>
+                      <span className="text-gray-700"> Asphalt characterization: Penetrometer, Ring and Ball Apparatus, Ductilometer, Saybolt Viscometer, Capillary Viscometer, Rotational Viscometer, Cleveland Open Cup Apparatus, Asphalt Homogenizer, Rolling Thin Film Oven, Pressure Aging Vessel, Rotary Evaporator, Dynamic Shear Rheometer</span>
+                    </div>
+                    <div>
+                      <span className="font-semibold">B. Mix:</span>
+                      <span className="text-gray-700"> Asphalt mix characterization: Rice Apparatus, Sand Equivalent Test Apparatus, Asphalt Mixer, Marshall Compactor, Multispeed Compression Tester, Centrifuge Extractor, Superpave Gyratory Compactor, Dynamic Testing System 30 kN, Hamburg Wheel Tracker</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <span className="font-bold">II. Cement:</span>
+                  <span className="text-gray-700 ml-2">Concrete Mixer, Universal Testing Machine</span>
+                </div>
+              </div>
+            </div>
+            {/* Pavement Evaluation Card */}
+            <div className="bg-white rounded-xl shadow-md p-6 flex flex-col">
+              <h3 className="text-xl font-semibold text-green-700 mb-4 flex items-center gap-2">
+                <span className="inline-block w-3 h-3 bg-green-500 rounded-full"></span> Pavement Evaluation
+              </h3>
+              <ul className="list-disc ml-6 text-gray-700 space-y-1">
+                <li>MERLIN</li>
+                <li>Dynamic Cone Penetrometer</li>
+                <li>Bump Integrator</li>
+                <li>Benkelman Beam</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Facilities Content with Dropdown Tabs */}
       <section className="py-16">
         <div className="container mx-auto px-4">
