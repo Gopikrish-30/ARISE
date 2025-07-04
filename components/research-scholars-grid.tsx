@@ -121,19 +121,6 @@ export function ResearchScholarsGrid() {
       linkedin: "",
       website: "",
     },
-    {
-      name: "Anandlal M",
-      role: "MS Scholar",
-      image: "/placeholder.svg?height=300&width=300&text=Anandlal+M",
-      interests: ["Carbonated RAC in pavement construction"],
-      joiningDate: "2022",
-      expectedCompletion: "",
-      bio: "",
-      email: "anandlal@iitpkd.ac.in",
-      iitProfile: "https://iitpkd.ac.in/people/102203001",
-      linkedin: "",
-      website: "",
-    },
   ]
 
   const interns: any[] = []
