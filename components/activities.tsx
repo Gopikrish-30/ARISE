@@ -11,22 +11,22 @@ export function Activities() {
   const activities = [
     {
       title: "Research Excellence",
-      description: "Conducting world-class research in pavement engineering and sustainable materials",
+      description: "Attended world-class research in pavement engineering and sustainable materials",
       image: "/placeholder.svg?height=400&width=600&text=Research+Excellence",
     },
     {
       title: "Student Mentorship",
-      description: "Guiding the next generation of researchers and innovators in civil engineering",
+      description: "Attended the next generation of researchers and innovators in civil engineering",
       image: "/placeholder.svg?height=400&width=600&text=Student+Mentorship",
     },
     {
       title: "Industry Collaboration",
-      description: "Partnering with industry leaders for real-world pavement engineering applications",
+      description: "Attended with industry leaders for real-world pavement engineering applications",
       image: "/placeholder.svg?height=400&width=600&text=Industry+Collaboration",
     },
     {
       title: "Global Outreach",
-      description: "Participating in international conferences and research collaborations",
+      description: "Attended in international conferences and research collaborations",
       image: "/placeholder.svg?height=400&width=600&text=Global+Outreach",
     },
   ]

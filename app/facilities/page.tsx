@@ -9,58 +9,191 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 export default function FacilitiesPage() {
   const facilities = [
+    // Bitumen - Binder
     {
-      title: "Albedometer",
-      description: "This device is used to measure the reflection of light from earth's surface. It consists of two pyranometers, one facing up towards the sky and one facing down towards the surface for its setup.",
-      image: "/facilities/Albedometer_0.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/albedometer",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Workshop - 8",
+      title: "Penetrometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
       section: "bitumen",
+      bitumenType: "binder",
     },
     {
-      title: "Asphalt Concrete Mixer",
-      description: "It Used for Mixing Bituminous Materials in the Laboratory.",
-      image: "/facilities/Asphalt-concrete-mixer.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/asphalt-concrete-mixer",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Casting Yard",
+      title: "Ring and Ball Apparatus",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
       section: "bitumen",
+      bitumenType: "binder",
     },
     {
-      title: "Asphalt Saw",
-      description: "This saw can be used to cut concrete, asphalt and rock cores, and irregular rock samples in order to obtain geometrically defined samples.",
-      image: "/facilities/Asphalt saw.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/asphalt-saw",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Near Casting Yard",
+      title: "Ductilometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
       section: "bitumen",
+      bitumenType: "binder",
     },
     {
-      title: "Rolling Thin Film Oven",
-      description: "It is used for measuring the effect of heat and air on a moving film of semi-solid bituminous materials",
-      image: "/facilities/RTFO.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/rolling-thin-film-oven",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Casting Yard",
+      title: "Saybolt Viscometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
       section: "bitumen",
+      bitumenType: "binder",
     },
     {
-      title: "Oven",
-      description: "It can be used for soil, aggregates and asphalt testing, It has stainless steel internal and external lining, fast heat up, easy to read digital control and forced convection airflow for uniform temperature throughout the oven chamber.",
-      image: "/facilities/Hot Air Oven.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/oven",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Casting - Yard",
-      section: "cement",
+      title: "Capillary Viscometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
     },
     {
       title: "Rotational Viscometer",
       description: "It is Used to measure viscosity by analyzing the torque required to rotate a spindle submerged in a fluid at a constant speed",
-      image: "/facilities/Rotational Viscometer.jpg?height=250&width=400&text=HPC+Cluster",
-      externalLink: "https://iitpkd.ac.in/facilities/rotational-viscometer",
-      contact: "jthin@iitpkd.ac.in | 04923226470",
-      location: "Casting - Yard",
+      image: "/facilities/Rotational Viscometer.jpg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Cleveland Open Cup Apparatus",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Asphalt Homogenizer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Rolling Thin Film Oven",
+      description: "It is used for measuring the effect of heat and air on a moving film of semi-solid bituminous materials",
+      image: "/facilities/RTFO.jpg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Pressure Aging Vessel",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Rotary Evaporator",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    {
+      title: "Dynamic Shear Rheometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "binder",
+    },
+    // Bitumen - Mix
+    {
+      title: "Rice Apparatus",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Sand Equivalent Test Apparatus",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Asphalt Mixer",
+      description: "It Used for Mixing Bituminous Materials in the Laboratory.",
+      image: "/facilities/Asphalt-concrete-mixer.jpg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Marshall Compactor",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Multispeed Compression Tester",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Centrifuge Extractor",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Superpave Gyratory Compactor",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Dynamic Testing System 30 kN",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    {
+      title: "Hamburg Wheel Tracker",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "bitumen",
+      bitumenType: "mix",
+    },
+    // Cement
+    {
+      title: "Concrete Mixer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "cement",
+    },
+    {
+      title: "Universal Testing Machine",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "cement",
+    },
+    // Evaluation
+    {
+      title: "MERLIN",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "evaluation",
+    },
+    {
+      title: "Dynamic Cone Penetrometer",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "evaluation",
+    },
+    {
+      title: "Bump Integrator",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
+      section: "evaluation",
+    },
+    {
+      title: "Benkelman Beam",
+      description: "Description coming soon.",
+      image: "/placeholder.svg",
       section: "evaluation",
     },
     // Add more facilities and assign to 'cement', 'bitumen', or 'evaluation' as needed
@@ -93,52 +226,6 @@ export default function FacilitiesPage() {
           <p className="text-xl max-w-3xl mx-auto">
             Explore our state-of-the-art research equipment and laboratory facilities
           </p>
-        </div>
-      </section>
-
-      {/* Inline Facilities Overview Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-2xl font-bold mb-8 text-gray-900 text-center">Facilities Overview</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Materials Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 flex flex-col">
-              <h3 className="text-xl font-semibold text-blue-700 mb-4 flex items-center gap-2">
-                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full"></span> Materials
-              </h3>
-              <div className="space-y-3">
-                <div>
-                  <span className="font-bold">I. Bitumen</span>
-                  <div className="ml-4 mt-1">
-                    <div className="mb-2">
-                      <span className="font-semibold">A. Binder:</span>
-                      <span className="text-gray-700"> Asphalt characterization: Penetrometer, Ring and Ball Apparatus, Ductilometer, Saybolt Viscometer, Capillary Viscometer, Rotational Viscometer, Cleveland Open Cup Apparatus, Asphalt Homogenizer, Rolling Thin Film Oven, Pressure Aging Vessel, Rotary Evaporator, Dynamic Shear Rheometer</span>
-                    </div>
-                    <div>
-                      <span className="font-semibold">B. Mix:</span>
-                      <span className="text-gray-700"> Asphalt mix characterization: Rice Apparatus, Sand Equivalent Test Apparatus, Asphalt Mixer, Marshall Compactor, Multispeed Compression Tester, Centrifuge Extractor, Superpave Gyratory Compactor, Dynamic Testing System 30 kN, Hamburg Wheel Tracker</span>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <span className="font-bold">II. Cement:</span>
-                  <span className="text-gray-700 ml-2">Concrete Mixer, Universal Testing Machine</span>
-                </div>
-              </div>
-            </div>
-            {/* Pavement Evaluation Card */}
-            <div className="bg-white rounded-xl shadow-md p-6 flex flex-col">
-              <h3 className="text-xl font-semibold text-green-700 mb-4 flex items-center gap-2">
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full"></span> Pavement Evaluation
-              </h3>
-              <ul className="list-disc ml-6 text-gray-700 space-y-1">
-                <li>MERLIN</li>
-                <li>Dynamic Cone Penetrometer</li>
-                <li>Bump Integrator</li>
-                <li>Benkelman Beam</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -182,28 +269,57 @@ export default function FacilitiesPage() {
                   </div>
                 </TabsContent>
                 <TabsContent value="bitumen">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {facilitiesBySection("bitumen").length === 0 ? (
-                      <div className="col-span-2 text-center text-gray-600 py-12">No bitumen-related facilities yet.</div>
-                    ) : (
-                      facilitiesBySection("bitumen").map((facility, index) => (
-                        <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                          <div className="h-64 bg-gray-200 relative overflow-hidden">
-                            <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
-                              <img
-                                src={facility.image || "/placeholder.svg"}
-                                alt={facility.title}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                              />
-                            </a>
-                          </div>
-                          <CardContent className="p-6">
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
-                            <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
-                          </CardContent>
-                        </Card>
-                      ))
-                    )}
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-blue-700 mb-4">A. Binder</h4>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      {facilitiesBySection("bitumen").filter(f => f.bitumenType === "binder").length === 0 ? (
+                        <div className="col-span-2 text-center text-gray-600 py-12">No binder-related facilities yet.</div>
+                      ) : (
+                        facilitiesBySection("bitumen").filter(f => f.bitumenType === "binder").map((facility, index) => (
+                          <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                            <div className="h-64 bg-gray-200 relative overflow-hidden">
+                              <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
+                                <img
+                                  src={facility.image || "/placeholder.svg"}
+                                  alt={facility.title}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </a>
+                            </div>
+                            <CardContent className="p-6">
+                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                              <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
+                            </CardContent>
+                          </Card>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-blue-700 mb-4">B. Mix</h4>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      {facilitiesBySection("bitumen").filter(f => f.bitumenType === "mix").length === 0 ? (
+                        <div className="col-span-2 text-center text-gray-600 py-12">No mix-related facilities yet.</div>
+                      ) : (
+                        facilitiesBySection("bitumen").filter(f => f.bitumenType === "mix").map((facility, index) => (
+                          <Card key={index} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                            <div className="h-64 bg-gray-200 relative overflow-hidden">
+                              <a href={facility.image || "/placeholder.svg"} target="_blank" rel="noopener noreferrer">
+                                <img
+                                  src={facility.image || "/placeholder.svg"}
+                                  alt={facility.title}
+                                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </a>
+                            </div>
+                            <CardContent className="p-6">
+                              <h3 className="text-xl font-bold text-gray-900 mb-3">{facility.title}</h3>
+                              <p className="text-gray-600 mb-2 line-clamp-2">{facility.description}</p>
+                            </CardContent>
+                          </Card>
+                        ))
+                      )}
+                    </div>
                   </div>
                 </TabsContent>
               </Tabs>

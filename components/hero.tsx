@@ -51,12 +51,11 @@ export function Hero() {
               {/* Main Heading */}
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-                  ASPIRE
-                  <span className="block text-blue-300 text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-blue-300 text-2xl md:text-4xl lg:text-5xl font-extrabold max-w-5xl w-full">
                     CENTER FOR ADVANCING SUSTAINABLE PAVEMENT INNOVATION AND RESEARCH
                   </span>
                   <span className="block text-2xl md:text-3xl lg:text-4xl text-gray-100 font-normal mt-2">
-                    at IIT Palakkad
+                    IIT Palakkad
                   </span>
                 </h1>
               </div>

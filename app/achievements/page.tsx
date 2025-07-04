@@ -3,56 +3,66 @@
 import Image from "next/image"
 
 const achievements = [
-  {
-    title: "Jury Appreciation Prize",
-    description: `Ms. Silpa Sekhar G., a research scholar under the guidance of Dr. C.V Veena Venudharan, Department of Civil Engineering, has been awarded the 'Jury Appreciation Prize' for presenting research at the All India Research Scholars' Summit 2025, held from 27th to 30th March, 2025, at the Indian Institute of Technology Madras.`,
-    imageSrc: "/images/achivement1.png",
-    imageAlt: "Ms. Silpa Sekhar G.",
-    personName: "Ms. Silpa Sekhar G.",
-    role: "Research Scholar",
-    guidance: "Under the guidance of Dr. C.V Veena Venudharan",
-    department: "Department of Civil Engineering",
-  },
-  // Add more achievements here as needed
+	{
+		title: "Jury Appreciation Prize",
+		description: `Ms. Silpa Sekhar G., a research scholar under the guidance of Dr. C.V Veena Venudharan, Department of Civil Engineering, has been awarded the 'Jury Appreciation Prize' for presenting research at the All India Research Scholars' Summit 2025, held from 27th to 30th March, 2025, at the Indian Institute of Technology Madras.`,
+		imageSrc: "/images/achivement1.png",
+		imageAlt: "Ms. Silpa Sekhar G.",
+		personName: "Ms. Silpa Sekhar G.",
+		role: "Research Scholar",
+		guidance: "Under the guidance of Dr. C.V Veena Venudharan",
+		department: "Department of Civil Engineering",
+	},
+	// Add more achievements here as needed
 ]
 
 export default function AchievementsPage() {
-  return (
-    <div className="bg-white min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Achievements & Awards</h1>
-        </div>
-      </section>
+	return (
+		<div className="bg-white min-h-screen">
+			{/* Hero Section */}
+			<section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+				<div className="container mx-auto px-4 text-center">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6">
+						Achievements & Awards
+					</h1>
+				</div>
+			</section>
 
-      {/* Achievements Grid Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {achievements.map((achievement, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center text-center p-6"
-            >
-              <div className="w-48 h-48 relative rounded-lg overflow-hidden mb-6 shadow-md">
-                <Image
-                  src={achievement.imageSrc}
-                  alt={achievement.imageAlt}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  priority
-                />
-              </div>
-              <h2 className="text-xl font-bold mb-2">{achievement.title}</h2>
-              <p className="text-gray-700 mb-4">{achievement.description}</p>
-              <p className="font-semibold">{achievement.personName}</p>
-              <p>{achievement.role}</p>
-              <p>{achievement.guidance}</p>
-              <p>{achievement.department}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
-  )
+			{/* Achievements Grid Section */}
+			<section className="py-16">
+				<div className="container mx-auto px-4">
+					<div className="grid md:grid-cols-1 lg:grid-cols-1 gap-12">
+						{achievements.map((achievement, index) => (
+							<div
+								key={index}
+								className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-row items-center p-12 min-h-[260px] max-w-6xl mx-auto"
+							>
+								<div className="w-80 h-56 relative rounded-lg overflow-hidden mr-12 flex-shrink-0 shadow-md">
+									<Image
+										src={achievement.imageSrc}
+										alt={achievement.imageAlt}
+										fill
+										style={{ objectFit: "cover" }}
+										priority
+									/>
+								</div>
+								<div className="flex-1 text-left">
+									<h2 className="text-3xl font-bold mb-2">
+										{achievement.title}
+									</h2>
+									<p className="text-gray-700 mb-4">
+										{achievement.description}
+									</p>
+									<p className="font-semibold">{achievement.personName}</p>
+									<p>{achievement.role}</p>
+									<p>{achievement.guidance}</p>
+									<p>{achievement.department}</p>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		</div>
+	)
 }

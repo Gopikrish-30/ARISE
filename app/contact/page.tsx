@@ -33,37 +33,19 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+    // Open mail client with prefilled details to pavementlabiitpkd@outlook.com
+    const mailto = `mailto:pavementlabiitpkd@outlook.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\n\n${formData.message}`
+    )}`
+    window.location.href = mailto
 
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData)
-
-      setIsSubmitted(true)
-      toast({
-        title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24 hours.",
-      })
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-      })
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
-      setTimeout(() => setIsSubmitted(false), 3000)
-    }
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+    toast({
+      title: "Message window opened!",
+      description: "Your email client should open. Please send your message.",
+    })
+    setTimeout(() => setIsSubmitted(false), 3000)
   }
 
   const handleEmailClick = (email: string) => {

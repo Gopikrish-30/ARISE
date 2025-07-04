@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Mail, ExternalLink, Phone, MapPin, Calendar } from "lucide-react"
+import { Mail, ExternalLink, Phone, MapPin, Calendar, Linkedin } from "lucide-react"
 
 export function FacultyGrid() {
   const [selectedFaculty, setSelectedFaculty] = useState<any>(null)
@@ -152,6 +152,24 @@ export function FacultyGrid() {
                     <ExternalLink className="w-4 h-4 mr-2" />
                     IIT Profile
                   </Button>
+                  <div className="flex gap-2 w-full">
+                    <Button
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => window.open('', '_blank', 'noopener,noreferrer')}
+                    >
+                      <Linkedin className="w-4 h-4 mr-2" />
+                      LinkedIn
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => window.open('', '_blank', 'noopener,noreferrer')}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Website
+                    </Button>
+                  </div>
                   <Button
                     variant="outline"
                     className="w-full"
